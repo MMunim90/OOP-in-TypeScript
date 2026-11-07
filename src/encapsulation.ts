@@ -34,7 +34,7 @@ class Employee {
     private _baseSalary: number,
   ) {}
 
-  // first way to write the get and set method
+  // new way to write the get and set method
 
   get baseSalary() : number {
     return this._baseSalary
@@ -51,7 +51,7 @@ class Employee {
     this._baseSalary = newSalary;
   }
 
-  // second way to write the get and set method
+  // older way to write the get and set method
 
   // getBaseSalary() : number {
   //   return this._baseSalary
