@@ -3,15 +3,15 @@
 class Employee {
   constructor(
     public name: string,
-    private _baseSalary: number,
+    protected _baseSalary: number,
   ) {}
 
-  get baseSalary() : number {
-    return this._baseSalary
+  get baseSalary(): number {
+    return this._baseSalary;
   }
 
-  set baseSalary(newSalary: number){
-    if(newSalary < 0) {
+  set baseSalary(newSalary: number) {
+    if (newSalary < 0) {
       throw new Error("Salary cannot be negative value");
     }
     this._baseSalary = newSalary;
@@ -22,17 +22,43 @@ class Employee {
   }
 }
 
-class Manager extends Employee {
-    teamMemberCount: number;
+// class Manager extends Employee {
+//     teamMemberCount: number;
 
-    constructor(name: string, _baseSalary: number, teamMemberCount: number) {
-      super(name, _baseSalary);
-      this.teamMemberCount = teamMemberCount;
-    }
+//     constructor(name: string, _baseSalary: number, teamMemberCount: number) {
+//       super(name, _baseSalary);
+//       this.teamMemberCount = teamMemberCount;
+//     }
+// }
+
+// shortcut
+class Manager extends Employee {
+  constructor(
+    name: string,
+    _baseSalary: number,
+    public teamMemberCount: number,
+  ) {
+    super(name, _baseSalary);
+  }
+
+
+  describeWork(): string {
+    return `${this.name} manages ${this.teamMemberCount} people.`
+  }
+
+  describeManager(): string {
+    return `${this.name} earns ${this._baseSalary}`
+  }
 }
 
-const employee = new Employee("Munim", 22000)
+const employee = new Employee("Munim", 22000);
 
 console.log(employee.describe());
 
-const manager = new Manager("Rahim", 24000, 20)
+const manager = new Manager("Rahim", 24000, 20);
+
+console.log(manager.describe());
+
+console.log(manager.describeWork());
+
+// console.log(manager._baseSalary)
