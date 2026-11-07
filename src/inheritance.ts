@@ -25,11 +25,14 @@ class Employee {
 class Manager extends Employee {
     teamMemberCount: number;
 
-    constructor(teamMemberCount: number) {
-        this.teamMemberCount = teamMemberCount;
+    constructor(name: string, _baseSalary: number, teamMemberCount: number) {
+      super(name, _baseSalary);
+      this.teamMemberCount = teamMemberCount;
     }
 }
 
 const employee = new Employee("Munim", 22000)
 
 console.log(employee.describe());
+
+const manager = new Manager("Rahim", 24000, 20)
